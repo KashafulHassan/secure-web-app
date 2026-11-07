@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Login</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <h1>Login</h1>
+  <% if (error) { %><p class="err"><%= error %></p><% } %>
+  <form method="POST" action="/login" novalidate>
+    <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+    <label>Username <input name="username" required minlength="3" maxlength="30" pattern="[a-zA-Z0-9_]+"></label>
+    <label>Password <input type="password" name="password" required minlength="8" maxlength="128"></label>
+    <button type="submit">Log in</button>
+  </form>
+  <p><a href="/register">Create an account</a></p>
+</body>
+</html>
